@@ -3,5 +3,10 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-        s.reverse()
+        if len(s) == 1:
+            return
+        val = s.pop()
+        self.reverseString(s)
+        s.insert(0, val)
+        return 
         
