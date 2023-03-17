@@ -13,11 +13,7 @@ class Solution:
         if val <= low or val >= high:
             return False
 
-        if not self.helper(node.right, val, high):
-            return False
-        if not self.helper(node.left, low, val):
-            return False
-        return True
+        return self.helper(node.left, low, val) and self.helper(node.right, val, high)
         
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         return self.helper(root, float('-inf'), float('inf'))
