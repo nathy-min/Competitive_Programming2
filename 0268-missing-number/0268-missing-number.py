@@ -1,11 +1,16 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        n = len(nums)
-        sum_val = 0
+        nums.append(-1)
+        first = 0
         
-        for i in range(n + 1):
-            sum_val += i
+        while first < len(nums):
+            if nums[first] == -1 or nums[first] == first:
+                first += 1
+            else:
+                val = nums[first]
+                nums[first] , nums[val] = nums[val] , nums[first]
         
-        sum_nums = sum(nums)
-        
-        return sum_val - sum_nums
+        for idx , val in enumerate(nums):
+            if val == -1:
+                return idx
+            
