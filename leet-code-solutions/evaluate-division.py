@@ -30,6 +30,10 @@ class Solution:
                         q.append([nei, w * weight])
 
             if flag:
+                
+                
+                
+                
                 ans.append( -1)               
         
         return ans    
